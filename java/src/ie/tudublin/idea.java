@@ -8,7 +8,7 @@ import ddf.minim.analysis.FFT;
 import processing.core.PApplet;
 
 
-public class Idea extends Visual{{ 
+public class Idea extends Visual{ 
 
     class Star {
         float x, y, z;
