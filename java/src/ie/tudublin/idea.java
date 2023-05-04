@@ -8,7 +8,7 @@ package ie.tudublin;
 import processing.core.PApplet;
 import processing.core.PConstants;
 
-public class Idea 
+public class Idea
 { 
     
     private MyVisual mv;
