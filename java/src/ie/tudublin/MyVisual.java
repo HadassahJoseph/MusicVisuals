@@ -22,7 +22,7 @@ public class MyVisual extends Visual
 
 	public void settings()
     {
-        size(1024, 700,OPENGL);
+        size(1024, 700);
         //h_idea2 = new Idea();
         
         // Use this to make fullscreen

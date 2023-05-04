@@ -47,7 +47,7 @@ public class stars  {
 
         // Create the left and right hearts
         leftHeart = new Heart(mv.width * 0.2f, mv.height / 2, 10, mv.color(255, 0, 0));
-        rightHeart = new Heart(mv.width * 0.8f, mv.height / 2, 10, mv.color(255, 0, 0));
+        rightHeart = new Heart(mv.width * 1.6f, mv.height / 2, 10, mv.color(255, 0, 0));
 
     }
 
@@ -244,14 +244,14 @@ public class stars  {
     
             arr = mv.getSmoothedBands();
 
-             float amplitude = (int) MyVisual.map(x, 100, mv.width, 100, arr[5]);
+             float amplitude = (int) MyVisual.map(x, 100, mv.width, 100, arr[8]);
             //int index = (int) MyVisual.map(x, 100, mv.width, 100, arr.length > 50 ? arr[50] : 0);
             //float amplitude = arr[index % 5];
 
-            size = amplitude * 70;
+            size = amplitude * 50;
             // limit the maximum size
-            if (size > 50) {
-                size = 50;
+            if (size > 40) {
+                size = 40;
             }
             mv.fill(color);
             mv.noStroke();
@@ -284,7 +284,8 @@ public class stars  {
         
         void update(float amplitude) {
           // Map the amplitude value to a range of values that will control the size of the heart
-          size = MyVisual.map(amplitude, 0, 1, 25, 100);
+          size = MyVisual.map(amplitude, 0, 1, 50, 100);
         }
       }
 }
+
