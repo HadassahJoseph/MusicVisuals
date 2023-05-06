@@ -2,8 +2,7 @@ package ie.tudublin;
 
 import example.WaveForm;
 
-public class MyVisual extends Visual
-{    
+public class MyVisual extends Visual {
     WaveForm wf;
     Idea h_idea2;
     stars s;
@@ -16,16 +15,14 @@ public class MyVisual extends Visual
 
     public Object song;
 
-	public void settings()
-    {
+    public void settings() {
         fullScreen(P3D, SPAN);
     }
 
-    public void setup()
-    {
+    public void setup() {
         startMinim();
-        //colorMode(HSB);
-         
+        // colorMode(HSB);
+
         h_idea2 = new Idea(this);
         mNote = new music_note(this);
         s = new stars(this);
@@ -36,59 +33,53 @@ public class MyVisual extends Visual
 
     }
 
-    public void keyPressed()
-    {
-        if(key >= '0' && key <= '7')
-        {
+    public void keyPressed() {
+        if (key >= '0' && key <= '7') {
             mode = key - '0';
         }
-        if(keyCode == ' ')
-        {
+        if (keyCode == ' ') {
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
         }
     }
 
-
     @Override
-    public void draw()
-    {
-        switch (mode) 
-        {
-			case 1://first to play (grace)
-           
+    public void draw() {
+        switch (mode) {
+            case 1:// first to play (grace)
+
                 part_one();
-                
-                    break;
-            case 2://When you press key 1 (hadassah)
-             
+
+                break;
+            case 2:// When you press key 1 (hadassah)
+
                 part_two();
-                
+
                 break;
 
             case 3:// when you press key 2 (cece)
-        
-               part_three();
+
+                part_three();
 
                 break;
 
-            case 4://when you press key 3 (molly)
+            case 4:// when you press key 3 (molly)
 
                 part_four();
 
                 break;
 
-            case 5://when you press key 4 (aisha)
+            case 5:// when you press key 4 (aisha)
 
                 part_five();
                 break;
-            
-            case 6://when you press key 4 (aisha)
+
+            case 6:// when you press key 4 (aisha)
 
                 part_six();
                 break;
 
-            case 7://when you press key 4 (aisha)
+            case 7:// when you press key 4 (aisha)
 
                 part_seven();
                 break;
@@ -96,23 +87,17 @@ public class MyVisual extends Visual
                 break;
 
         }
-        
+
     }
 
-
-    void part_one()
-    {
+    void part_one() {
         h_idea2.render();
     }
 
-    void part_two()
-    {
-        try
-        {
+    void part_two() {
+        try {
             calculateFFT();
-        }
-        catch(VisualException e)
-        {
+        } catch (VisualException e) {
             e.printStackTrace();
         }
         calculateFrequencyBands();
@@ -120,89 +105,79 @@ public class MyVisual extends Visual
         mNote.render();
     }
 
-    void part_three()
-    {
-       
-        try {
-                calculateFFT();
-            } 
-            
-        catch (VisualException e) 
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-             }
-             calculateFrequencyBands();
-             
-             s.render();
-       
-    }
+    void part_three() {
 
-    void part_four()
-    {
-       
-        try {
-                calculateFFT();
-            } 
-            
-        catch (VisualException e) 
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-             }
-             calculateFrequencyBands();
-             //colorMode(HSB, 360, 100, 100); 
-            db.render();
-       
-    }
-
-    void part_five()
-    {
         try {
             calculateFFT();
-        } 
-        
-        catch (VisualException e) 
-        {
+        }
+
+        catch (VisualException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-         }
-         calculateFrequencyBands();
-         hj.render();
+        }
+        calculateFrequencyBands();
+
+        s.render();
 
     }
 
-    void part_six()
-    {
+    void part_four() {
+
         try {
             calculateFFT();
-        } 
-        
-        catch (VisualException e) 
-        {
+        }
+
+        catch (VisualException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-         }
-         calculateFrequencyBands();
-         ss.render();
+        }
+        calculateFrequencyBands();
+        // colorMode(HSB, 360, 100, 100);
+        db.render();
 
     }
 
-    void part_seven()
-    {
+    void part_five() {
+        try {
+            calculateFFT();
+        }
+
+        catch (VisualException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        calculateFrequencyBands();
+        hj.render();
+
+    }
+
+    void part_six() {
+        try {
+            calculateFFT();
+        }
+
+        catch (VisualException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        calculateFrequencyBands();
+        ss.render();
+
+    }
+
+    void part_seven() {
         // try {
-        //     calculateFFT();
-        // } 
-        
-        // catch (VisualException e) 
+        // calculateFFT();
+        // }
+
+        // catch (VisualException e)
         // {
-        //     // TODO Auto-generated catch block
-        //     e.printStackTrace();
-        //  }
-        //  calculateFrequencyBands();
+        // // TODO Auto-generated catch block
+        // e.printStackTrace();
+        // }
+        // calculateFrequencyBands();
         end.render();
 
     }
-    
-}
 
+}

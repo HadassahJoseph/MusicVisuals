@@ -8,23 +8,19 @@ package ie.tudublin;
 import processing.core.PApplet;
 import processing.core.PConstants;
 
-public class Ending
-{ 
-    
+public class Ending {
+
     private MyVisual mv;
-    //private Idea h_idea2;
+    // private Idea h_idea2;
 
     Star[] stars = new Star[500];
     float speed = 50;
 
-
-    public Ending(MyVisual mv)
-    {
+    public Ending(MyVisual mv) {
         this.mv = mv;
-        //this.idea = new Idea(mv);
+        // this.idea = new Idea(mv);
 
-        for (int i = 0; i < stars.length; i++) 
-        {
+        for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star();
         }
     }
@@ -34,60 +30,55 @@ public class Ending
     // AudioBuffer ab;
     // int mode = 0;
 
-    //FFT fft;
-    float y = 0;    
+    // FFT fft;
+    float y = 0;
 
     float[] spectrum;
 
-    //Star[] stars;
-    //int numStars = 100;
-    //int maxSpeed = 0;
+    // Star[] stars;
+    // int numStars = 100;
+    // int maxSpeed = 0;
 
     // public void keyPressed() {
-    //     if (key >= '0' && key <= '9') {
-    //         mode = key - '0';
-    //     }
-    //     if (keyCode == ' ') {
-    //         if (ap.isPlaying()) {
-    //             ap.pause();
-    //         } else {
-    //             ap.rewind();
-    //             ap.play();
-    //         }
-    //     }
+    // if (key >= '0' && key <= '9') {
+    // mode = key - '0';
     // }
-
-
-   
-
+    // if (keyCode == ' ') {
+    // if (ap.isPlaying()) {
+    // ap.pause();
+    // } else {
+    // ap.rewind();
+    // ap.play();
+    // }
+    // }
+    // }
 
     // public void settings()
     // {
-    //     size(1024, 1024);
+    // size(1024, 1024);
     // }
 
-    //Star[] stars = new Star[numStars];
+    // Star[] stars = new Star[numStars];
 
-    //public void setup() {
-    
-    //minim = new Minim(this);
+    // public void setup() {
+
+    // minim = new Minim(this);
     // Uncomment this to use the microphone
     // ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
-    // ab = ai.mix; 
+    // ab = ai.mix;
 
-        // And comment the next two lines out
-        //   ap = minim.loadFile("MusicVisuals/java/data/Victoria_Mon_t_ft_Khalid_-_Experience.mp3", 512);
-        //   ap.play();
-        //   ab = ap.mix;
-        //colorMode(HSB);
-    
-    
-     
+    // And comment the next two lines out
+    // ap =
+    // minim.loadFile("MusicVisuals/java/data/Victoria_Mon_t_ft_Khalid_-_Experience.mp3",
+    // 512);
+    // ap.play();
+    // ab = ap.mix;
+    // colorMode(HSB);
+
     // }
 
-    public void draw() 
-    {
-        //speed = map(mouseX, 0, width, 0, 50);
+    public void draw() {
+        // speed = map(mouseX, 0, width, 0, 50);
 
         mv.background(0);
 
@@ -109,13 +100,10 @@ public class Ending
 
     }
 
-    public void render()
-    {
+    public void render() {
         draw();
         // System.out.print("here");
     }
-
-
 
     class Star {
         float x, y, z;
@@ -126,8 +114,8 @@ public class Ending
             y = mv.random(-(mv.height), mv.height);
             z = mv.random(mv.width);
             pz = z;
-        // speed = random(1, maxSpeed);
-        //speed = map(mouseX, 0, width, 0, 50);
+            // speed = random(1, maxSpeed);
+            // speed = map(mouseX, 0, width, 0, 50);
         }
 
         void update() {
@@ -140,6 +128,7 @@ public class Ending
                 pz = z;
             }
         }
+
         void show() {
             mv.fill(255);
             mv.noStroke();
@@ -147,12 +136,12 @@ public class Ending
             float sx = PApplet.map(x / z, 0, 1, 0, mv.width);
             float sy = PApplet.map(y / z, 0, 1, 0, mv.height);
 
-            float r = PApplet.map(z, 0, mv.width/2, 16, 0);
+            float r = PApplet.map(z, 0, mv.width / 2, 16, 0);
 
             mv.ellipse(sx, sy, r, r);
 
-            float px = PApplet.map(x / pz, 0, 1, 0, mv.width/2);
-            float py = PApplet.map(y / pz, 0, 1, 0, mv.height/2);
+            float px = PApplet.map(x / pz, 0, 1, 0, mv.width / 2);
+            float py = PApplet.map(y / pz, 0, 1, 0, mv.height / 2);
 
             pz = z;
 

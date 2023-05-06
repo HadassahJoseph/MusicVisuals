@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import ddf.minim.analysis.*;
 import processing.core.PConstants;
 
-public class stars  {
+public class stars {
 
-   
     FFT fft;
 
-    
     Heart leftHeart;
     Heart rightHeart;
 
@@ -27,12 +25,11 @@ public class stars  {
     ArrayList<Particle> particles = new ArrayList<Particle>();
 
     // public void settings() {
-    //     size(1024, 1000);
-    //     // fullScreen(P3D, SPAN);
+    // size(1024, 1000);
+    // // fullScreen(P3D, SPAN);
     // }
-    
-    public stars(MyVisual mv)
-    {
+
+    public stars(MyVisual mv) {
         this.mv = mv;
 
         for (int i = 0; i < 100; i++) {
@@ -49,23 +46,17 @@ public class stars  {
 
     }
 
-    public void render(){
+    public void render() {
         draw();
     }
 
-
-    
-
     void drawDaisy() {
 
-   
         // Set the center point of the daisy
         float centerX = mv.width / 2;
         float centerY = mv.height / 2;
         float average = 0;
         float sum = 0;
-
-        
 
         // Set the size of the daisy
         float daisySize = 310;
@@ -181,9 +172,9 @@ public class stars  {
         }
 
         drawDaisy();
-        drawstem();	
+        drawstem();
 
-      // Update the left and right hearts based on the audio amplitude
+        // Update the left and right hearts based on the audio amplitude
         leftHeart.update(smoothedAmplitude);
         rightHeart.update(smoothedAmplitude);
 
@@ -218,25 +209,22 @@ public class stars  {
 
         void draw() {
 
-            float[] arr;
-
             // try {
-            //     mv.calculateFFT();
-            // } catch (VisualException e) 
+            // mv.calculateFFT();
+            // } catch (VisualException e)
             // {
-            //     // TODO Auto-generated catch block
-            //     e.printStackTrace();
+            // // TODO Auto-generated catch block
+            // e.printStackTrace();
             // }
-    
-           // arr = mv.getSmoothedBands();
 
-            //int index = (int) MyVisual.map(x, 100, mv.width, 100, arr[8]);
+            // arr = mv.getSmoothedBands();
+
+            // int index = (int) MyVisual.map(x, 100, mv.width, 100, arr[8]);
             float amplitude = mv.ap.mix.level();
-            
 
-             
-            //int index = (int) MyVisual.map(x, 100, mv.width, 100, arr.length > 50 ? arr[50] : 0);
-            //float amplitude = arr[index % 5];
+            // int index = (int) MyVisual.map(x, 100, mv.width, 100, arr.length > 50 ?
+            // arr[50] : 0);
+            // float amplitude = arr[index % 5];
 
             size = amplitude * 90;
             // limit the maximum size
@@ -248,33 +236,35 @@ public class stars  {
             mv.ellipse(x, y, size, size);
         }
     }
+
     class Heart {
         float x, y;
         float size;
         int color;
-        
+
         Heart(float x, float y, float size, int color) {
-          this.x = x;
-          this.y = y;
-          this.size = size;
-          this.color = color;
+            this.x = x;
+            this.y = y;
+            this.size = size;
+            this.color = color;
         }
-        
+
         void draw() {
-          // Draw the heart shape using bezier curves
-          mv.smooth();
-          mv.noStroke();
-          mv.fill(color);
-          mv.beginShape();
-          mv.vertex(x, y);
-          mv.bezierVertex(x - size * 1, y - size * 2, x - size * 3, y + size / 2, x, y + size * 2);
-          mv.bezierVertex(x + size * 3, y + size / 2, x + size * 1, y - size * 2, x, y);
-          mv.endShape();
+            // Draw the heart shape using bezier curves
+            mv.smooth();
+            mv.noStroke();
+            mv.fill(color);
+            mv.beginShape();
+            mv.vertex(x, y);
+            mv.bezierVertex(x - size * 1, y - size * 2, x - size * 3, y + size / 2, x, y + size * 2);
+            mv.bezierVertex(x + size * 3, y + size / 2, x + size * 1, y - size * 2, x, y);
+            mv.endShape();
         }
-        
+
         void update(float amplitude) {
-          // Map the amplitude value to a range of values that will control the size of the heart
-          size = MyVisual.map(amplitude, 0, 1, 50, 140);
+            // Map the amplitude value to a range of values that will control the size of
+            // the heart
+            size = MyVisual.map(amplitude, 0, 1, 50, 140);
         }
     }
 }

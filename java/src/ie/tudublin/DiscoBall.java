@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import ddf.minim.analysis.FFT;
 
-public class DiscoBall  {
+public class DiscoBall {
 
   FFT fft;
 
@@ -12,24 +12,20 @@ public class DiscoBall  {
   float theta = 0;
   float rotationSpeed = (float) 0.01;
   float[] FFT_g;
-    
 
   public DiscoBall(MyVisual mv) {
 
-     this.mv = mv;
-   
-    
+    this.mv = mv;
+
   }
 
-  public void render()
-  {
-    draw ();
+  public void render() {
+    draw();
   }
 
   public void draw() {
 
-
-     // Create gradient background
+    // Create gradient background
     for (int y = 0; y < mv.height; y++) {
 
       // Calculate the color at each row
@@ -41,8 +37,7 @@ public class DiscoBall  {
       // Draw a line for the row
       mv.line(0, y, mv.width, y);
 
-    } 
-
+    }
 
     mv.pushMatrix(); // Save the current transformation matrix
 
@@ -55,45 +50,39 @@ public class DiscoBall  {
     }
 
     mv.popMatrix(); // Restore the previous transformation matrix
-  
-    mv.translate(mv.width/2, mv.height/2, 0); // Move the sphere to the center of the screen
+
+    mv.translate(mv.width / 2, mv.height / 2, 0); // Move the sphere to the center of the screen
     float angle = (float) (mv.frameCount * 0.01); // Use a fixed rotation speed based on frame count
     mv.rotateY(angle); // Rotate the sphere based on the angle
 
     float rotationSpeed = map2(mv.frameCount, 0, 1000, 0.001, 0.1); // Map the frame count to a rotation speed range
     mv.rotateY(rotationSpeed * mv.frameCount); // Rotate the sphere based on the current frame count and rotation speed
 
-  
     rotationSpeed = map2(mv.frameCount, 0, 1000, 0.001, 0.1); // Map the frame count to a rotation speed range
     mv.rotateY(rotationSpeed * mv.frameCount); // Rotate the sphere based on the current frame count and rotation speed
 
-    
-    mv.stroke(204,204,255); 
+    mv.stroke(204, 204, 255);
     mv.strokeWeight((float) 3.5); // sets the thickness of lines in the disco Ball
     mv.line(0, -250, 0, 0);
 
-    
-
-    mv.fill(160,160,160);// set th colour of the sphere
+    mv.fill(160, 160, 160);// set th colour of the sphere
     mv.sphere(250); // Draw the sphere
 
     discoBallRope();
 
-  
   }
-  
+
   private float map2(float value, double f, double g, double d, double e) {
 
     return (float) (d + (e - d) * ((value - f) / (g - f)));
 
   }
 
-
   void discoBallRope() {
 
-    mv.stroke(192,192,192); 
+    mv.stroke(192, 192, 192);
     mv.strokeWeight(10); // Set the thickness of the line
-    mv.line(0, 0, 0, 0, -(mv.height/2), 0); // Draw the line from the top of the sphere to the top of the screen
+    mv.line(0, 0, 0, 0, -(mv.height / 2), 0); // Draw the line from the top of the sphere to the top of the screen
 
   }
 
@@ -103,57 +92,52 @@ public class DiscoBall  {
     float heartX;
     float heartBottomY;
     float r;
-    
+
     Heart() {
 
       heartSize = mv.random(10, 100);
       heartX = mv.random(mv.width);
-      heartBottomY = mv.random(mv.height+heartSize);
+      heartBottomY = mv.random(mv.height + heartSize);
       r = mv.random(255);
 
     }
 
-
-    
-    
     void display() {
 
-
       float level = mv.ap.mix.level();
-  
+
       if (level > 0.1) {
 
         // Set heart position and color
         heartX = mv.random(mv.width);
-        heartBottomY = mv.random(mv.height+heartSize);
+        heartBottomY = mv.random(mv.height + heartSize);
         r = mv.random(255);
 
       }
-  
+
       mv.fill(r, 0, 0);
       mv.stroke(r, 0, 0);
-      //left half of heart
+      // left half of heart
       mv.beginShape();
-      mv.curveVertex(heartX, heartBottomY+heartSize); //anchor point
-      mv.curveVertex(heartX, heartBottomY); //bottom tip
-      mv.curveVertex(heartX - heartSize/2, (float) (heartBottomY-heartSize/1.5)); //left edge
-      mv.curveVertex(heartX - heartSize/3, heartBottomY-heartSize); //top of left edge
-      mv.curveVertex(heartX, (float) (heartBottomY-heartSize*.75)); //top middle dip
-      mv.curveVertex(heartX, heartBottomY); //guiding point
+      mv.curveVertex(heartX, heartBottomY + heartSize); // anchor point
+      mv.curveVertex(heartX, heartBottomY); // bottom tip
+      mv.curveVertex(heartX - heartSize / 2, (float) (heartBottomY - heartSize / 1.5)); // left edge
+      mv.curveVertex(heartX - heartSize / 3, heartBottomY - heartSize); // top of left edge
+      mv.curveVertex(heartX, (float) (heartBottomY - heartSize * .75)); // top middle dip
+      mv.curveVertex(heartX, heartBottomY); // guiding point
       mv.endShape();
-  
-      //right half of heart
-      mv.beginShape();
-      mv.curveVertex(heartX, heartBottomY);
-      mv.curveVertex(heartX, (float) (heartBottomY-heartSize*.75));
-      mv.curveVertex(heartX + heartSize/3, heartBottomY-heartSize);
-      mv.curveVertex(heartX + heartSize/2, (float) (heartBottomY-heartSize/1.5));
-      mv.curveVertex(heartX, heartBottomY);
-     mv. curveVertex(heartX, heartBottomY + heartSize);
-      mv.endShape();
-      
-    }
 
+      // right half of heart
+      mv.beginShape();
+      mv.curveVertex(heartX, heartBottomY);
+      mv.curveVertex(heartX, (float) (heartBottomY - heartSize * .75));
+      mv.curveVertex(heartX + heartSize / 3, heartBottomY - heartSize);
+      mv.curveVertex(heartX + heartSize / 2, (float) (heartBottomY - heartSize / 1.5));
+      mv.curveVertex(heartX, heartBottomY);
+      mv.curveVertex(heartX, heartBottomY + heartSize);
+      mv.endShape();
+
+    }
 
   }
 

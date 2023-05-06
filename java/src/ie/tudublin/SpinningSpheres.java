@@ -7,57 +7,49 @@ import ddf.minim.analysis.*;
 
 //import processing.core.PConstants;
 
-public class SpinningSpheres 
-{
+public class SpinningSpheres {
   private float angle = 0;
   MyVisual mv;
   FFT fft;
 
- 
-  public SpinningSpheres(MyVisual mv)
-  {
+  public SpinningSpheres(MyVisual mv) {
     this.mv = mv;
   }
 
-  public void draw()
-  {
+  public void draw() {
     mv.background(0);
-    
 
-    //float level = mv.getSmoothedAmplitude(); //song.mix.level();
-    
+    // float level = mv.getSmoothedAmplitude(); //song.mix.level();
 
     float level = mv.ap.mix.level();
 
-    mv.translate(mv.width/2, mv.height/2, 0);
+    mv.translate(mv.width / 2, mv.height / 2, 0);
     mv.rotateY(angle);
     mv.rotateX(angle);
 
-    //create rotating spheres
+    // create rotating spheres
     mv.noStroke();
 
-    for (int i = 0; i < 1000; i++)
-    {
-      float x = mv.random(-mv.width/2, mv.width/2);
-        float y = mv.random(-mv.height/2, mv.height/2);
-        float z = mv.random(-100, 100);
-        
-        float d = PApplet.dist(0, 0, 0, x, y, z);
- 
-        mv.fill(mv.random(255), mv.random(255), mv.random(255));
-        //mv.fill(mv.random(255), (255), (255));
-        
-        mv.pushMatrix();
-        mv.translate(x, y, z);
-        mv.sphere((float) (d * level * 0.1));
-        mv.popMatrix();
+    for (int i = 0; i < 1000; i++) {
+      float x = mv.random(-mv.width / 2, mv.width / 2);
+      float y = mv.random(-mv.height / 2, mv.height / 2);
+      float z = mv.random(-100, 100);
+
+      float d = PApplet.dist(0, 0, 0, x, y, z);
+
+      mv.fill(mv.random(255), mv.random(255), mv.random(255));
+      // mv.fill(mv.random(255), (255), (255));
+
+      mv.pushMatrix();
+      mv.translate(x, y, z);
+      mv.sphere((float) (d * level * 0.1));
+      mv.popMatrix();
     }
     angle += 0.01;
   }
 
-  public void render()
-  {
+  public void render() {
     draw();
   }
-  
+
 }
