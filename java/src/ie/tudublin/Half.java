@@ -21,7 +21,7 @@ public class Half {
 float rotationX = 0;
 float rotationY = 0;
 float rotationZ = 0;
-float sphereRadius = 450;
+float sphereRadius = 350;
 int lineCount = 30;
 int squareSize = 15;
 int colorChangeRate = 20;
@@ -56,8 +56,8 @@ mv.strokeWeight(2);
   mv.rotateZ(rotationZ);
   
   // Get the amplitude of the song
-  float amplitude = mv.getSmoothedAmplitude(); //song.mix.level();
-  float sizeChange = MyVisual.map(amplitude, 0, 1, 1, 2);
+  float amplitude = mv.ap.mix.level();
+  float sizeChange = MyVisual.map(amplitude, 0, 1,1, 2);
   
   colorTime++;
   if (colorTime % colorChangeRate == 0) {
