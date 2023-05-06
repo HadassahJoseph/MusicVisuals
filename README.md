@@ -37,6 +37,15 @@ We created an audio visual project we have created is an innovative & interactiv
 # How it works
 
 # What I am most proud of in the assignment
+Aisha: I am proud that I was able to make a visual that responds well to the amplitude of the song. My visual is the last one to be shown as the musics fades out my 3d spheres get smaller and look like stars.
+
+Cecilia: 
+
+Hadassah:
+
+Grace:
+
+Molly:
 
 # Markdown Tutorial
 
