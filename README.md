@@ -38,6 +38,23 @@ We created an audio visual project we have created is an innovative & interactiv
 4. To replay the song press the spacebar.
 
 # How it works
+Our MyVisual class is our main class that it running our files.
+There are several objects declared in teh beginning of our class. Thes objects represent different visual elements in our project.
+An integer variable called mode is initialized to 1, which will determine the active part of the visual to be rendered. 
+keyPressed() Method:
+This method is overridden from the Visual class and is called whenever a key is pressed.
+If a numeric key between '0' and '7' is pressed, the mode variable is updated accordingly.
+If the spacebar is pressed, it cues the audio player to the start (position 0) and plays the song.
+draw() Method:
+This method is overridden from the Visual class and is the main drawing loop for the sketch.
+It uses a switch statement on the mode variable to determine which part of the visual to render.Depending on the value of mode, it calls the corresponding part_*() methods.
+
+part_*() Methods:
+These methods are custom-defined and handle the rendering of different visual parts based on the current mode.
+Each method first attempts to calculate the Fast Fourier Transform (FFT) using the calculateFFT() method. If an exception occurs, it is caught and printed.
+The calculateFrequencyBands() method is called to calculate the frequency bands for visualization.
+Finally, the corresponding visual element (h_idea2, mNote, s, db, hj, ss, end) is rendered using its respective render() method.
+Overall, this code structure allows you to switch between different visual parts and render them based on the selected mode. Each part seems to have its own unique visualization logic implemented in the respective part_*() methods.
 
 
 # What I am most proud of in the assignment
