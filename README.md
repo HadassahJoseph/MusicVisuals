@@ -62,6 +62,56 @@ This method is overridden from the Visual class and is called whenever a key is 
 If a numeric key between '0' and '7' is pressed, the mode variable is updated accordingly.
 If the spacebar is pressed, it cues the audio player to the start (position 0) and plays the song.
 draw() Method:
+```Java
+  @Override
+    public void draw()
+    {
+        switch (mode) 
+        {
+	    case 1://first to play key 1 (opening screen)
+           
+                part_one();
+                
+                    break;
+            case 2://When you press key 2 (molly)
+             
+                part_two();
+                
+                break;
+
+            case 3:// when you press key 3 (cece)
+        
+               part_three();
+
+                break;
+
+            case 4://when you press key 4 (grace)
+
+                part_four();
+
+                break;
+
+            case 5://when you press key 5 (hadassah)
+
+                part_five();
+                break;
+            
+            case 6://when you press key 6 (aisha)
+
+                part_six();
+                break;
+
+            case 7://when you press key 7(ending screen)
+
+                part_seven();
+                break;
+            default:
+                break;
+
+        }
+        
+    }
+```
 This method is overridden from the Visual class and is the main drawing loop for the sketch.
 It uses a switch statement on the mode variable to determine which part of the visual to render.Depending on the value of mode, it calls the corresponding part_*() methods.
 
