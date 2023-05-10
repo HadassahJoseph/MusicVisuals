@@ -62,7 +62,7 @@ Aisha: I am proud that I was able to make a visual that responds well to the amp
 
 Molly:
 
-Cecilia: 
+Cecilia: I am most proud that i was able to create particles falling from the top of the screen that was able to respond to the amplitude of the song , and that i was able to incorperate lerp into my code to make the stem of the flower and the center of the flower react smoothedly to the music.
 
 Hadassah: I'm most proud of my half globe visual that fulfills our abstract theme. The visual captures the essence of the track, creating a mesmerizing and immersive experience for the viewer.I am proud of the abstract theme and the decision to incorporate the disco ball concept, as it aligns seamlessly with the overall vision of our work. By adhering to this theme, we were able to maintain a consistent aesthetic and effectively convey the mood and energy of the song through our visuals. I am especially proud of persevering through the obstacles we faced, such as rendering issues and difficulties with merging files on Git. Despite these setbacks, we remained determined and dedicated to producing a high-quality end result.
 
