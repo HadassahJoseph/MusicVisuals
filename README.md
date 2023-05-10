@@ -138,7 +138,7 @@ These methods are custom-defined and handle the rendering of different visual pa
 Each method first attempts to calculate the Fast Fourier Transform (FFT) using the calculateFFT() method. If an exception occurs, it is caught and printed.
 The calculateFrequencyBands() method is called to calculate the frequency bands for visualization.
 Finally, the corresponding visual element (h_idea2, mNote, s, db, hj, ss, end) is rendered using its respective render() method.
-Overall, this code structure allows you to switch between different visual parts and render them based on the selected mode. Each part seems to have its own unique visualization logic implemented in the respective part_*() methods. Above is an ezample of one of these methods.
+Overall, this code structure allows you to switch between different visual parts and render them based on the selected mode. Each part seems to have its own unique visualization logic implemented in the respective part_*() methods. Above is an example of one of these methods.
 
 
 # What I am most proud of in the assignment
