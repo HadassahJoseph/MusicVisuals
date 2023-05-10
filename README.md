@@ -38,10 +38,26 @@ We created an audio visual project we have created is an innovative & interactiv
 4. To replay the song press the spacebar.
 
 # How it works
-Our MyVisual class is our main class that it running our files.
+Our MyVisual class is our main class that it rendering our visuals.
 There are several objects declared in teh beginning of our class. Thes objects represent different visual elements in our project.
-An integer variable called mode is initialized to 1, which will determine the active part of the visual to be rendered. 
+An integer variable called mode is initialized to 1, which will determine the active part of the visual to be rendered.
+
 keyPressed() Method:
+```Java
+public void keyPressed()
+    {
+        if(key >= '0' && key <= '7')
+        {
+            mode = key - '0';
+        }
+        if(keyCode == ' ')
+        {
+            getAudioPlayer().cue(0);
+            getAudioPlayer().play();
+        }
+    }
+```
+
 This method is overridden from the Visual class and is called whenever a key is pressed.
 If a numeric key between '0' and '7' is pressed, the mode variable is updated accordingly.
 If the spacebar is pressed, it cues the audio player to the start (position 0) and plays the song.
