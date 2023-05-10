@@ -61,6 +61,7 @@ public void keyPressed()
 This method is overridden from the Visual class and is called whenever a key is pressed.
 If a numeric key between '0' and '7' is pressed, the mode variable is updated accordingly.
 If the spacebar is pressed, it cues the audio player to the start (position 0) and plays the song.
+
 draw() Method:
 ```Java
   @Override
@@ -116,11 +117,28 @@ This method is overridden from the Visual class and is the main drawing loop for
 It uses a switch statement on the mode variable to determine which part of the visual to render.Depending on the value of mode, it calls the corresponding part_*() methods.
 
 part_*() Methods:
+```Java
+void part_six()
+    {
+        try {
+            calculateFFT();
+        } 
+        
+        catch (VisualException e) 
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+         }
+         calculateFrequencyBands();
+         ss.render();
+        colorMode(HSB);
+    }
+```
 These methods are custom-defined and handle the rendering of different visual parts based on the current mode.
 Each method first attempts to calculate the Fast Fourier Transform (FFT) using the calculateFFT() method. If an exception occurs, it is caught and printed.
 The calculateFrequencyBands() method is called to calculate the frequency bands for visualization.
 Finally, the corresponding visual element (h_idea2, mNote, s, db, hj, ss, end) is rendered using its respective render() method.
-Overall, this code structure allows you to switch between different visual parts and render them based on the selected mode. Each part seems to have its own unique visualization logic implemented in the respective part_*() methods.
+Overall, this code structure allows you to switch between different visual parts and render them based on the selected mode. Each part seems to have its own unique visualization logic implemented in the respective part_*() methods. Above is an ezample of one of these methods.
 
 
 # What I am most proud of in the assignment
@@ -133,7 +151,6 @@ Cecilia: I am most proud that i was able to create particles falling from the to
 Hadassah: I'm most proud of my half globe visual that fulfills our abstract theme. The visual captures the essence of the track, creating a mesmerizing and immersive experience for the viewer.I am proud of the abstract theme and the decision to incorporate the disco ball concept, as it aligns seamlessly with the overall vision of our work. By adhering to this theme, we were able to maintain a consistent aesthetic and effectively convey the mood and energy of the song through our visuals. I am especially proud of persevering through the obstacles we faced, such as rendering issues and difficulties with merging files on Git. Despite these setbacks, we remained determined and dedicated to producing a high-quality end result.
 
 Grace:
-
 
 
 # Markdown Tutorial
