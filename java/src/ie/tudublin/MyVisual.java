@@ -44,42 +44,44 @@ public class MyVisual extends Visual {
     }
 
     @Override
-    public void draw() {
-        switch (mode) {
-            case 1:// first to play (grace)
-
+    public void draw()
+    {
+        switch (mode) 
+        {
+			case 1://first to play key 1 (opening screen)
+           
                 part_one();
-
-                break;
-            case 2:// When you press key 1 (hadassah)
-
+                
+                    break;
+            case 2://When you press key 2 (molly)
+             
                 part_two();
 
                 break;
 
-            case 3:// when you press key 2 (cece)
-
-                part_three();
+            case 3:// when you press key 3 (cece)
+        
+               part_three();
 
                 break;
 
-            case 4:// when you press key 3 (molly)
+            case 4://when you press key 4 (grace)
 
                 part_four();
 
                 break;
 
-            case 5:// when you press key 4 (aisha)
+            case 5://when you press key 5 (hadassah)
 
                 part_five();
                 break;
-
-            case 6:// when you press key 4 (aisha)
+            
+            case 6://when you press key 6 (aisha)
 
                 part_six();
                 break;
 
-            case 7:// when you press key 4 (aisha)
+            case 7://when you press key 7(ending screen)
 
                 part_seven();
                 break;
@@ -90,7 +92,8 @@ public class MyVisual extends Visual {
 
     }
 
-    void part_one() {
+    void part_one()
+    {
         h_idea2.render();
     }
 
@@ -104,9 +107,10 @@ public class MyVisual extends Visual {
         // colorMode(HSB, 360, 100, 100);
         mNote.render();
     }
-
-    void part_three() {
-
+    
+    void part_three()
+    {
+       
         try {
             calculateFFT();
         }
@@ -159,10 +163,10 @@ public class MyVisual extends Visual {
         catch (VisualException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
-        calculateFrequencyBands();
-        ss.render();
-
+         }
+         calculateFrequencyBands();
+         ss.render();
+        colorMode(HSB);
     }
 
     void part_seven() {
